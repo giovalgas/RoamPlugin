@@ -4,7 +4,6 @@ import me.giodev.roamplugin.commands.BaseCommand;
 import me.giodev.roamplugin.commands.examplecommand.ExampleCommand;
 import me.giodev.roamplugin.data.config.ConfigManager;
 import me.giodev.roamplugin.data.language.LanguageManager;
-import me.giodev.roamplugin.listeners.GUIClickListener;
 import me.giodev.roamplugin.utils.LoggerUtil;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.PluginManager;
@@ -33,7 +32,6 @@ public final class RoamPlugin extends JavaPlugin {
 
   private void loadEvents() {
     PluginManager pm = getServer().getPluginManager();
-    pm.registerEvents(new GUIClickListener(this), this);
   }
 
   private void loadCommands() {

@@ -16,7 +16,6 @@ public class ExampleCommand extends BaseCommand {
     subCommands.put("TEST", new ExampleSubCommand());
   }
 
-
   @Override
   public void executeStockSubCommand(CommandSender sender) {
     plugin.getLog().info("executing stock command!");
@@ -34,7 +33,9 @@ public class ExampleCommand extends BaseCommand {
 
 
   @Override
-  public @NotNull List<String> getAliases() { return Arrays.asList(new String[]{"excmd"}.clone()); }
+  public @NotNull List<String> getAliases() {
+    return Arrays.asList(new String[]{"excmd"}.clone());
+  }
 
   @Override
   public boolean isPlayerOnly() {
