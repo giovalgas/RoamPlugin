@@ -1,0 +1,9 @@
+name: RoamPlugin
+version: ${project.version}
+main: me.giodev.roamplugin.RoamPlugin
+api-version: 1.16
+commands:
+  excommand:
+    aliases: ["excmd"]
+    usage: "/tpcommand <args>"
+    description: "Example command"
