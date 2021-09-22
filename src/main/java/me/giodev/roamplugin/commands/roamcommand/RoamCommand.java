@@ -2,6 +2,7 @@ package me.giodev.roamplugin.commands.roamcommand;
 
 import me.giodev.roamplugin.RoamPlugin;
 import me.giodev.roamplugin.commands.BaseCommand;
+import me.giodev.roamplugin.data.data.RoamingPlayerEntity;
 import me.giodev.roamplugin.data.permissions.Permission;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
@@ -26,7 +27,6 @@ public class RoamCommand extends BaseCommand {
       return;
     }
 
-    player.setGameMode(plugin.getRoamerState(player).isRoaming() ? GameMode.SURVIVAL : GameMode.SPECTATOR);
     plugin.flipRoamingState(player);
 
   }
