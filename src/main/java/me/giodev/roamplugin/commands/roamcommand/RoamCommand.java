@@ -3,7 +3,10 @@ package me.giodev.roamplugin.commands.roamcommand;
 import me.giodev.roamplugin.RoamPlugin;
 import me.giodev.roamplugin.commands.BaseCommand;
 import me.giodev.roamplugin.data.permissions.Permission;
+import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.List;
@@ -16,12 +19,21 @@ public class RoamCommand extends BaseCommand {
 
   @Override
   public void executeStockSubCommand(CommandSender sender) {
-    plugin.getLog().info("executing stock command!");
+    Player player = (Player) sender;
+
+    if(!((LivingEntity) player).isOnGround() && player.getGameMode() != GameMode.SPECTATOR) {
+      //MESSAGE (CANNOT USE COMMAND WHILE FLYING)
+      return;
+    }
+
+    player.setGameMode(plugin.isRoaming(player) ? GameMode.SURVIVAL : GameMode.SPECTATOR);
+    plugin.flipRoamingState(player);
+
   }
 
   @Override
   public @NotNull String getPermission() {
-    return Permission.TPCOMMAND;
+    return Permission.ROAM;
   }
 
   @Override
@@ -37,7 +49,7 @@ public class RoamCommand extends BaseCommand {
 
   @Override
   public boolean isPlayerOnly() {
-    return false;
+    return true;
   }
 
 
