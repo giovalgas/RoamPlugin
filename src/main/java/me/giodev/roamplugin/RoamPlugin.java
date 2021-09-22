@@ -3,6 +3,7 @@ package me.giodev.roamplugin;
 import me.giodev.roamplugin.commands.BaseCommand;
 import me.giodev.roamplugin.commands.roamcommand.RoamCommand;
 import me.giodev.roamplugin.data.config.ConfigManager;
+import me.giodev.roamplugin.data.data.RoamState;
 import me.giodev.roamplugin.data.language.LanguageManager;
 import me.giodev.roamplugin.utils.LoggerUtil;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -20,7 +21,7 @@ public final class RoamPlugin extends JavaPlugin {
   private ConfigManager configManager;
   private LanguageManager languageManager;
   private LoggerUtil log;
-  private HashMap<UUID, Boolean> roamerState = new HashMap<>();
+  private HashMap<UUID, RoamState> roamerState = new HashMap<>();
 
   @Override
   public void onEnable(){
@@ -36,19 +37,17 @@ public final class RoamPlugin extends JavaPlugin {
     log.info("Plugin fully started!");
   }
 
-  public boolean isRoaming(@NotNull Player player) {
-
-    if(roamerState.get(player.getUniqueId()) == null) {
-      roamerState.put(player.getUniqueId(), false);
-    }
-
-    return roamerState.get(player.getUniqueId());
-  }
-
   public void flipRoamingState(@NotNull Player player) {
-    roamerState.put(player.getUniqueId(), !roamerState.get(player.getUniqueId()));
+
+    RoamState rs = getRoamerState(player);
+    rs.setRoaming(!rs.isRoaming());
+
+    roamerState.put(player.getUniqueId(), rs);
   }
 
+  public RoamState getRoamerState(Player player) {
+    return roamerState.get(player.getUniqueId()) != null ? roamerState.get(player.getUniqueId()) : new RoamState(player);
+  }
 
   private void loadEvents() {
     PluginManager pm = getServer().getPluginManager();

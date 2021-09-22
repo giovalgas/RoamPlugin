@@ -26,7 +26,7 @@ public class RoamCommand extends BaseCommand {
       return;
     }
 
-    player.setGameMode(plugin.isRoaming(player) ? GameMode.SURVIVAL : GameMode.SPECTATOR);
+    player.setGameMode(plugin.getRoamerState(player).isRoaming() ? GameMode.SURVIVAL : GameMode.SPECTATOR);
     plugin.flipRoamingState(player);
 
   }
