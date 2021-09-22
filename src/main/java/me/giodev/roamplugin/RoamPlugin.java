@@ -1,7 +1,7 @@
 package me.giodev.roamplugin;
 
 import me.giodev.roamplugin.commands.BaseCommand;
-import me.giodev.roamplugin.commands.examplecommand.ExampleCommand;
+import me.giodev.roamplugin.commands.roamcommand.RoamCommand;
 import me.giodev.roamplugin.data.config.ConfigManager;
 import me.giodev.roamplugin.data.language.LanguageManager;
 import me.giodev.roamplugin.utils.LoggerUtil;
@@ -35,7 +35,7 @@ public final class RoamPlugin extends JavaPlugin {
   }
 
   private void loadCommands() {
-    loadCommand(new ExampleCommand(this));
+    loadCommand(new RoamCommand(this));
   }
 
   private void loadCommand(BaseCommand command) {
