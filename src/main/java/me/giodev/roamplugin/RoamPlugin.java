@@ -7,6 +7,7 @@ import me.giodev.roamplugin.data.data.RoamState;
 import me.giodev.roamplugin.data.language.LanguageManager;
 import me.giodev.roamplugin.listeners.RoamActionListener;
 import me.giodev.roamplugin.listeners.RoamCommandListener;
+import me.giodev.roamplugin.listeners.RoamMovementListener;
 import me.giodev.roamplugin.utils.LoggerUtil;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
@@ -60,6 +61,7 @@ public final class RoamPlugin extends JavaPlugin {
     PluginManager pm = getServer().getPluginManager();
     pm.registerEvents(new RoamActionListener(this), this);
     pm.registerEvents(new RoamCommandListener(this), this);
+    pm.registerEvents(new RoamMovementListener(this), this);
   }
 
   private void loadCommands() {

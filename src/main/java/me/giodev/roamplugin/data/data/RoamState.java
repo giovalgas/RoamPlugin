@@ -35,4 +35,12 @@ public class RoamState {
     return roaming;
   }
 
+  public Player getPlayer() {
+    return player;
+  }
+
+  public RoamingPlayerEntity getRoamingPlayerEntity() {
+    return roamingPlayerEntity;
+  }
+
 }
