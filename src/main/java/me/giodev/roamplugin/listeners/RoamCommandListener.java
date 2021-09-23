@@ -24,8 +24,6 @@ public class RoamCommandListener implements Listener {
     Player player = event.getPlayer();
     String command = event.getMessage().split(" ")[0].replace("/", "");
 
-    plugin.getLog().info(command);
-
     RoamCommand rc = new RoamCommand(plugin);
 
     if(command.equalsIgnoreCase(rc.getName()) || rc.getAliases().contains(command.toLowerCase())) return;
