@@ -8,6 +8,7 @@ public class RoamState {
   private Player player;
   private boolean roaming;
   private RoamingPlayerEntity roamingPlayerEntity;
+  private long lastUse;
 
   public RoamState(Player player) {
     this.player = player;
@@ -21,6 +22,7 @@ public class RoamState {
     if(roaming) {
       gm = GameMode.SPECTATOR;
       roamingPlayerEntity = new RoamingPlayerEntity(player);
+      this.lastUse = System.currentTimeMillis();
 
     }else{
       gm = GameMode.SURVIVAL;
@@ -37,6 +39,10 @@ public class RoamState {
 
   public Player getPlayer() {
     return player;
+  }
+
+  public long getLastUse() {
+    return lastUse;
   }
 
   public RoamingPlayerEntity getRoamingPlayerEntity() {

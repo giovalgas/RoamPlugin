@@ -43,9 +43,15 @@ public final class RoamPlugin extends JavaPlugin {
   public void flipRoamingState(@NotNull Player player) {
 
     RoamState rs = getRoamerState(player);
-    rs.setRoaming(!rs.isRoaming());
 
+    if((System.currentTimeMillis() - rs.getLastUse()) / 1000 < 30 && !rs.isRoaming()){
+      //MESSAGE (STILL ON COOLDOWN)
+      return;
+    }
+
+    rs.setRoaming(!rs.isRoaming());
     roamerState.put(player.getUniqueId(), rs);
+
   }
 
   public RoamState getRoamerState(Player player) {
