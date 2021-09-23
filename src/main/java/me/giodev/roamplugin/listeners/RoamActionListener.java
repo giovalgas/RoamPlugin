@@ -26,4 +26,13 @@ public class RoamActionListener implements Listener {
 
   }
 
+  @EventHandler
+  public void onInteract(PlayerInteractEvent event) {
+
+    if(plugin.getRoamerState(event.getPlayer()).isRoaming()){
+      event.setCancelled(true);
+    }
+
+  }
+
 }
