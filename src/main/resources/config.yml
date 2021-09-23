@@ -1,3 +1,16 @@
 #Config.yml - Template Plugin
 
 console-prefix: "[RoamPlugin] "
+
+roam:
+  max-distance: 48 # max distance a player can travel while roaming (in blocks)
+  duration: -1 # maximum duration of a roaming session (in seconds)
+  cooldown: 60 # cooldown between roaming sessions (in seconds)
+  disable-commands: true # whether commands are enabled or not while roaming
+
+# PS: for pricing to work in server you'll need Vault and an Economy provider
+# Vault: https://www.spigotmc.org/resources/vault.34315/
+# Economy Provider(doesn't need to be this one): https://www.spigotmc.org/resources/essentialsx.9089/
+vault-hook:
+  price: 100 # price to roam
+  enabled: false # whether vault is enabled or not in your server
