@@ -71,6 +71,17 @@ public class ConfigFile {
     }
   }
 
+  public double getDouble(String p, double defaultDouble) throws InvalidConfigurationException {
+    if(config.isDouble(p)) {
+      return config.getDouble(p);
+    } else if(config.contains(p)){
+      throw new InvalidConfigurationException("'" + configFile.getName() + "' at path: '" + p +"' is not an double");
+    }else {
+      config.set(p, defaultDouble);
+      return defaultDouble;
+    }
+  }
+
   public String getString(String p, String defaultString) throws InvalidConfigurationException {
     if(config.isString(p)) {
       return config.getString(p);

@@ -1,19 +1,13 @@
 package me.giodev.roamplugin.listeners;
 
-import de.tr7zw.changeme.nbtapi.NBTEntity;
-import me.giodev.multiversion.XMaterial;
 import me.giodev.roamplugin.RoamPlugin;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.meta.SkullMeta;
-
-import java.util.UUID;
 
 public class RoamEntityDamageListener implements Listener {
 
