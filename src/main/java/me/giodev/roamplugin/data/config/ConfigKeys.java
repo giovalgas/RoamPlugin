@@ -10,6 +10,6 @@ public class ConfigKeys {
   public static final String ROAM_DISABLE_COMMANDS = "roam.disable-commands";
 
   public static final String VAULT_PRICE = "vault-hook.price";
-  public static final String VAULT_ENABLED = "vault.enabled";
+  public static final String VAULT_ENABLED = "vault-hook.enabled";
 
 }
