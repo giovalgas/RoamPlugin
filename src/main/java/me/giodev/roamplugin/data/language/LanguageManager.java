@@ -18,12 +18,20 @@ public class LanguageManager {
   YamlConfiguration langFileConfig;
 
   //Messages
-  private String helloWorld;
   private String chatPrefix;
   private String noPermission;
+  private String stillOnCooldown;
+  private String sessionExpired;
+  private String flyingError;
+  private String interactionError;
+  private String commandError;
+  private String movementError;
+  private String startedRoaming;
+  private String stoppedRoaming;
+  private String noMoney;
+  private String payedAmount;
 
   //Sounds
-  private MultiVersionSound clickSound;
 
   public LanguageManager(RoamPlugin plugin) throws InvalidConfigurationException {
     this.plugin = plugin;
@@ -51,11 +59,18 @@ public class LanguageManager {
   private void loadValues() throws InvalidConfigurationException {
     //Messages
     this.chatPrefix = getString(LanguageKeys.MESSAGE_PREFIX, LanguageDefaults.MESSAGE_PREFIX);
-    this.helloWorld = chatPrefix + getString(LanguageKeys.HELLO_WORLD, LanguageDefaults.HELLO_WORLD);
     this.noPermission = chatPrefix + getString(LanguageKeys.NO_PERMISSION, LanguageDefaults.NO_PERMISSION);
-
+    this.stillOnCooldown = chatPrefix + getString(LanguageKeys.STILL_ON_COOLDOWN, LanguageDefaults.STILL_ON_COOLDOWN);
+    this.sessionExpired = chatPrefix + getString(LanguageKeys.SESSION_EXPIRED, LanguageDefaults.SESSION_EXPIRED);
+    this.flyingError = chatPrefix + getString(LanguageKeys.FLYING_ERROR, LanguageDefaults.FLYING_ERROR);
+    this.interactionError = chatPrefix + getString(LanguageKeys.INTERACTION_ERROR, LanguageDefaults.INTERACTION_ERROR);
+    this.commandError = chatPrefix + getString(LanguageKeys.COMMAND_ERROR, LanguageDefaults.COMMAND_ERROR);
+    this.movementError = chatPrefix + getString(LanguageKeys.MOVEMENT_ERROR, LanguageDefaults.MOVEMENT_ERROR);
+    this.startedRoaming = chatPrefix + getString(LanguageKeys.STARTED_ROAMING, LanguageDefaults.STARTED_ROAMING);
+    this.stoppedRoaming = chatPrefix + getString(LanguageKeys.STOPPED_ROAMING, LanguageDefaults.STARTED_ROAMING);
+    this.noMoney = chatPrefix + getString(LanguageKeys.NO_MONEY, LanguageDefaults.NO_MONEY);
+    this.payedAmount = chatPrefix + getString(LanguageDefaults.PAYED_AMOUNT, LanguageDefaults.PAYED_AMOUNT);
     //Sounds
-    this.clickSound = getSound(LanguageKeys.CLICK_SOUND, LanguageDefaults.CLICK_SOUND);
 
   }
 
@@ -108,10 +123,6 @@ public class LanguageManager {
     }
   }
 
-  public String getHelloWorld() {
-    return helloWorld;
-  }
-
   public String getNoPermission() {
     return noPermission;
   }
@@ -120,8 +131,44 @@ public class LanguageManager {
     return chatPrefix;
   }
 
-  public MultiVersionSound getClickSound(){
-    return clickSound;
+  public String getStillOnCooldown() {
+    return stillOnCooldown.replace("%cooldown_time%", String.valueOf(plugin.getConfigManager().getCooldown()));
+  }
+
+  public String getSessionExpired() {
+    return sessionExpired;
+  }
+
+  public String getFlyingError() {
+    return flyingError;
+  }
+
+  public String getInteractionError() {
+    return interactionError;
+  }
+
+  public String getCommandError() {
+    return commandError;
+  }
+
+  public String getMovementError() {
+    return movementError;
+  }
+
+  public String getStartedRoaming() {
+    return startedRoaming;
+  }
+
+  public String getStoppedRoaming() {
+    return stoppedRoaming;
+  }
+
+  public String getNoMoney() {
+    return noMoney.replace("%price%", String.valueOf(plugin.getConfigManager().getPrice()));
+  }
+
+  public String getPayedAmount() {
+    return payedAmount.replace("%price%", String.valueOf(plugin.getConfigManager().getPrice()));
   }
 
 }

@@ -1,7 +1,17 @@
 messages:
   message-prefix: "&c[&6RoamPlugin&c] "
   no-permission: "&cYou don't have the permission needed to execute that command."
-  hello-world: "&aHello World!"
 
-sounds:
-  test-sound: CLICK
+  still-on-cooldown: "&cWait more &e%cooldown_time% &cseconds before using that again."
+  session-expired: "&eYour roaming session has &cexpired&e!"
+
+  flying-error: "&cYou cant use roam while flying."
+  interaction-error: "&cYou can't do that while roaming."
+  command-error: "&cYou can't use that command while roaming."
+  movement-error: "&cYou can't fly past that while roaming."
+
+  started-roaming: "&eYou are now on roaming mode!"
+  stopped-roaming: "&eYou are now out of roaming mode!"
+
+  no-money: "&cYou need &e$%price% &cto enter roaming mode."
+  payed-amount: "&eYou have paid &b$%price% &eto enter roaming mode!"
