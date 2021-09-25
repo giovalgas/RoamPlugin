@@ -29,7 +29,7 @@ public class DurationTask implements Runnable {
 
   public void onDisable() {
     plugin.flipRoamingState(player);
-    //MESSAGE (OUT OF TIME)
+    player.sendMessage(plugin.getLanguageManager().getSessionExpired());
   }
 
 }

@@ -69,7 +69,7 @@ public class LanguageManager {
     this.startedRoaming = chatPrefix + getString(LanguageKeys.STARTED_ROAMING, LanguageDefaults.STARTED_ROAMING);
     this.stoppedRoaming = chatPrefix + getString(LanguageKeys.STOPPED_ROAMING, LanguageDefaults.STARTED_ROAMING);
     this.noMoney = chatPrefix + getString(LanguageKeys.NO_MONEY, LanguageDefaults.NO_MONEY);
-    this.payedAmount = chatPrefix + getString(LanguageDefaults.PAYED_AMOUNT, LanguageDefaults.PAYED_AMOUNT);
+    this.payedAmount = chatPrefix + getString(LanguageKeys.PAYED_AMOUNT, LanguageDefaults.PAYED_AMOUNT);
     //Sounds
 
   }
@@ -132,7 +132,7 @@ public class LanguageManager {
   }
 
   public String getStillOnCooldown() {
-    return stillOnCooldown.replace("%cooldown_time%", String.valueOf(plugin.getConfigManager().getCooldown()));
+    return stillOnCooldown;
   }
 
   public String getSessionExpired() {

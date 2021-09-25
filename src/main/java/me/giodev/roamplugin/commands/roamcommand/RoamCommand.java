@@ -23,7 +23,7 @@ public class RoamCommand extends BaseCommand {
     Player player = (Player) sender;
 
     if(!((LivingEntity) player).isOnGround() && player.getGameMode() != GameMode.SPECTATOR) {
-      //MESSAGE (CANNOT USE COMMAND WHILE FLYING)
+      player.sendMessage(plugin.getLanguageManager().getFlyingError());
       return;
     }
 

@@ -30,12 +30,19 @@ public class RoamState {
       gm = GameMode.SPECTATOR;
       roamingPlayerEntity = new RoamingPlayerEntity(player);
       this.lastUse = System.currentTimeMillis();
-      this.runnable = Bukkit.getScheduler().runTaskTimer(plugin, new DurationTask(plugin, player), 0L, 20L);
+
+      if(plugin.getConfigManager().getDuration() != -1) {
+        this.runnable = Bukkit.getScheduler().runTaskTimer(plugin, new DurationTask(plugin, player), 0L, 20L);
+      }
+
+      player.sendMessage(plugin.getLanguageManager().getStartedRoaming());
 
     }else{
       gm = GameMode.SURVIVAL;
       player.teleport(roamingPlayerEntity.getLocation());
       roamingPlayerEntity.killEntity();
+
+      player.sendMessage(plugin.getLanguageManager().getStoppedRoaming());
 
       if(runnable != null) {
         runnable.cancel();

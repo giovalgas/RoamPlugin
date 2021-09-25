@@ -36,7 +36,7 @@ public class RoamCommandListener implements Listener {
 
     if(!player.hasPermission(Permission.ADMIN) || !player.hasPermission(Permission.COMMAND_OVERWRITE + command)) {
       event.setCancelled(true);
-      //MESSAGE (can't use this command while roaming)
+      player.sendMessage(plugin.getLanguageManager().getCommandError());
     }
 
   }

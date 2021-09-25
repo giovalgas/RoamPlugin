@@ -21,7 +21,7 @@ public class RoamActionListener implements Listener {
     if(plugin.getRoamerState(event.getPlayer()).isRoaming() && event.getCause() == TeleportCause.SPECTATE) {
       event.setCancelled(true);
       event.getPlayer().setSpectatorTarget(null);
-      //MESSAGE (You cant do that while roaming)
+      event.getPlayer().sendMessage(plugin.getLanguageManager().getInteractionError());
     }
 
   }
