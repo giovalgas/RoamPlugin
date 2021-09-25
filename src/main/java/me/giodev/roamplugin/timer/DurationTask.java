@@ -1,4 +1,4 @@
-package me.giodev.roamplugin.utils;
+package me.giodev.roamplugin.timer;
 
 import me.giodev.roamplugin.RoamPlugin;
 import org.bukkit.entity.Player;
