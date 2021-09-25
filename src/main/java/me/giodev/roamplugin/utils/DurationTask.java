@@ -1,0 +1,37 @@
+package me.giodev.roamplugin.utils;
+
+import me.giodev.roamplugin.RoamPlugin;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
+
+public class DurationTask implements Runnable {
+
+  private Player player;
+  private RoamPlugin plugin;
+  private int secondsRemaining;
+
+  public DurationTask(RoamPlugin plugin, Player player) {
+    this.plugin = plugin;
+    this.player = player;
+    this.secondsRemaining = 30;
+  }
+
+  @Override
+  public void run() {
+
+    if(secondsRemaining == 0){
+      this.onDisable();
+    }
+
+    secondsRemaining--;
+  }
+
+  public void onDisable() {
+    plugin.flipRoamingState(player);
+    //MESSAGE (OUT OF TIME)
+  }
+
+}
+
+

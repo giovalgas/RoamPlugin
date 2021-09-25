@@ -57,7 +57,7 @@ public final class RoamPlugin extends JavaPlugin {
   public RoamState getRoamerState(Player player) {
 
     if(roamerState.get(player.getUniqueId()) == null) {
-      roamerState.put(player.getUniqueId(), new RoamState(player));
+      roamerState.put(player.getUniqueId(), new RoamState(player, this));
     }
 
     return roamerState.get(player.getUniqueId());
