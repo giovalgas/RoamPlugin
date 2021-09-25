@@ -26,7 +26,7 @@ public class RoamMovementListener implements Listener {
 
     Location initialLocation = rm.getRoamingPlayerEntity().getLocation();
 
-    if(player.getLocation().distance(initialLocation) > 48) {
+    if(player.getLocation().distance(initialLocation) > plugin.getConfigManager().getMaxDistance()) {
       //MESSAGE can't walk past that
       player.teleport(initialLocation);
     }

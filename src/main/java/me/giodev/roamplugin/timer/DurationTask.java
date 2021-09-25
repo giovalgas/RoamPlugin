@@ -14,7 +14,7 @@ public class DurationTask implements Runnable {
   public DurationTask(RoamPlugin plugin, Player player) {
     this.plugin = plugin;
     this.player = player;
-    this.secondsRemaining = 30;
+    this.secondsRemaining = plugin.getConfigManager().getDuration();
   }
 
   @Override

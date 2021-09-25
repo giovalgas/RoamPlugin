@@ -26,7 +26,11 @@ public class RoamCommandListener implements Listener {
 
     RoamCommand rc = new RoamCommand(plugin);
 
-    if(command.equalsIgnoreCase(rc.getName()) || rc.getAliases().contains(command.toLowerCase())) return;
+    if(
+            command.equalsIgnoreCase(rc.getName()) ||
+            rc.getAliases().contains(command.toLowerCase()) ||
+            !plugin.getConfigManager().isDisableCommands()
+    ) return;
 
     if(!plugin.getRoamerState(player).isRoaming()) return;
 
