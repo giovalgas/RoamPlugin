@@ -31,7 +31,7 @@ public final class RoamPlugin extends JavaPlugin {
   private Economy econ = null;
 
   @Override
-  public void onEnable(){
+  public void onEnable() {
     //Load config, language & logger
     loadConfig();
     loadLang();
@@ -45,6 +45,15 @@ public final class RoamPlugin extends JavaPlugin {
     if(this.getConfigManager().isVaultEnabled()) setupEconomy();
 
     log.info("Plugin fully started!");
+  }
+
+  @Override
+  public void onDisable() {
+    for(RoamState rs : roamerState.values()) {
+      if(rs.isRoaming()){
+        rs.setRoaming(false);
+      }
+    }
   }
 
   public void flipRoamingState(@NotNull Player player) {
