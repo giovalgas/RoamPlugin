@@ -1,7 +1,7 @@
 package me.giodev.roamplugin.data.data;
 
 import me.giodev.roamplugin.RoamPlugin;
-import me.giodev.roamplugin.utils.DurationTask;
+import me.giodev.roamplugin.timer.DurationTask;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;

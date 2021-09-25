@@ -1,5 +1,6 @@
 package me.giodev.roamplugin.data.data;
 
+import de.tr7zw.changeme.nbtapi.NBTEntity;
 import me.giodev.multiversion.XMaterial;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -26,7 +27,7 @@ public class RoamingPlayerEntity {
 
     entity.setAI(false);
     entity.setInvulnerable(true);
-    entity.setCustomName(player.getName());
+    entity.setCustomName("Roaming - " + player.getName());
     entity.getEquipment().setArmorContents(player.getEquipment().getArmorContents());
     entity.getEquipment().setItemInMainHand(player.getItemInHand());
     entity.getEquipment().setHelmet(this.getPlayerSkull());
