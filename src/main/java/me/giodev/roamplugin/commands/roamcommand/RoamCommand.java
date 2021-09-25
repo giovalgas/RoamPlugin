@@ -22,13 +22,27 @@ public class RoamCommand extends BaseCommand {
   public void executeStockSubCommand(CommandSender sender) {
     Player player = (Player) sender;
 
+    //noinspection UnclearExpression
     if(!((LivingEntity) player).isOnGround() && player.getGameMode() != GameMode.SPECTATOR) {
       player.sendMessage(plugin.getLanguageManager().getFlyingError());
       return;
     }
 
-    plugin.flipRoamingState(player);
+    if(plugin.getConfigManager().isVaultEnabled() && !plugin.getRoamerState(player).isRoaming()){
 
+      double price = plugin.getConfigManager().getPrice();
+
+      if(plugin.getEcon().getBalance(player) < price){
+        player.sendMessage(plugin.getLanguageManager().getNoMoney());
+        return;
+      }
+
+      plugin.getEcon().withdrawPlayer(player, price);
+      player.sendMessage(plugin.getLanguageManager().getPayedAmount());
+
+    }
+
+    plugin.flipRoamingState(player);
   }
 
   @Override

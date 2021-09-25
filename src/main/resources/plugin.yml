@@ -7,3 +7,4 @@ commands:
     aliases: ["fc", "freecam"]
     usage: "/roam"
     description: "Changes the player gamemode to spectator"
+softdepend: [Vault]
