@@ -1,7 +1,12 @@
 package me.giodev.roamplugin.data.data;
 
+import com.cryptomorin.xseries.XEntity;
+import com.cryptomorin.xseries.XItemStack;
 import com.cryptomorin.xseries.XMaterial;
 import org.bukkit.Location;
+import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
@@ -21,6 +26,8 @@ public class RoamingPlayerEntity {
     loc.setPitch(0);
     loc.setYaw(0);
 
+
+    /**
     this.entity = (Skeleton) loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
 
     entity.setAI(false);
@@ -29,6 +36,7 @@ public class RoamingPlayerEntity {
     entity.getEquipment().setArmorContents(player.getEquipment().getArmorContents());
     entity.getEquipment().setItemInMainHand(player.getItemInHand());
     entity.getEquipment().setHelmet(this.getPlayerSkull());
+     */
 
   }
 
