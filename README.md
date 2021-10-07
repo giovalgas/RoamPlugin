@@ -47,8 +47,8 @@
 ## About The Project
 <table>
   <tr>
-    <td><img src="https://i.gyazo.com/8dd8e2d7b90f4bcf2c5cdb21359985e1.gif"></td>
-    <td><img src="https://i.gyazo.com/596ea073e61a5b4a3834ed9e302c1f0b.gif"></td>
+    <td><img src="https://i.gyazo.com/172dc9b129cf236993a609f0bf2dbf7c.gif"></td>
+    <td><img src="https://i.gyazo.com/6f39066de45fb95eb186c22bedd35d16.gif"></td>
   </tr>
  </table>
 
