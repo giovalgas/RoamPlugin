@@ -48,7 +48,7 @@
 <table>
   <tr>
     <td><img src="https://i.gyazo.com/172dc9b129cf236993a609f0bf2dbf7c.gif"></td>
-    <td><img src="https://i.gyazo.com/6f39066de45fb95eb186c22bedd35d16.gif"></td>
+    <td><img src="https://i.gyazo.com/7393acfc945863c4224cc46ceebdcbec.gif"></td>
   </tr>
  </table>
 
