@@ -1,3 +1,5 @@
+#Language.yml - RoamPlugin
+
 messages:
   message-prefix: "&c[&6RoamPlugin&c] "
   no-permission: "&cYou don't have the permission needed to execute that command."
