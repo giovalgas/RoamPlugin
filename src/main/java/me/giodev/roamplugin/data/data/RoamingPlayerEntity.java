@@ -1,8 +1,11 @@
 package me.giodev.roamplugin.data.data;
 
+import com.cryptomorin.xseries.SkullUtils;
 import com.cryptomorin.xseries.XEntity;
 import com.cryptomorin.xseries.XItemStack;
 import com.cryptomorin.xseries.XMaterial;
+import de.tr7zw.changeme.nbtapi.NBTContainer;
+import de.tr7zw.changeme.nbtapi.NBTEntity;
 import org.bukkit.Location;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.ConfigurationSection;
@@ -26,17 +29,15 @@ public class RoamingPlayerEntity {
     loc.setPitch(0);
     loc.setYaw(0);
 
-
-    /**
     this.entity = (Skeleton) loc.getWorld().spawnEntity(loc, EntityType.SKELETON);
 
-    entity.setAI(false);
-    entity.setInvulnerable(true);
+    NBTEntity nbtEntity = new NBTEntity(entity);
+    nbtEntity.mergeCompound(new NBTContainer("{Invulnerable:1,NoAI:1}"));
+
     entity.setCustomName("Roaming - " + player.getName());
     entity.getEquipment().setArmorContents(player.getEquipment().getArmorContents());
-    entity.getEquipment().setItemInMainHand(player.getItemInHand());
-    entity.getEquipment().setHelmet(this.getPlayerSkull());
-     */
+    entity.getEquipment().setItemInHand(player.getItemInHand());
+    entity.getEquipment().setHelmet(SkullUtils.getSkull(this.owner.getUniqueId()));
 
   }
 
@@ -46,14 +47,6 @@ public class RoamingPlayerEntity {
 
   public Location getLocation() {
     return loc;
-  }
-
-  private ItemStack getPlayerSkull() {
-    ItemStack skull = new ItemStack(XMaterial.PLAYER_HEAD.parseMaterial());
-    SkullMeta meta = (SkullMeta) skull.getItemMeta();
-    meta.setOwningPlayer(owner);
-    skull.setItemMeta(meta);
-    return skull;
   }
 
 }
