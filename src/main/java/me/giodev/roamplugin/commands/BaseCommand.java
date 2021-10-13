@@ -60,7 +60,13 @@ public abstract class BaseCommand implements TabExecutor, CommandExecutor {
 
     }else {
 
-      String[] arguments = this.subCommands.get(args[0].toUpperCase()).getArguments();
+      String[] arguments;
+
+      try {
+        arguments = this.subCommands.get(args[0].toUpperCase()).getArguments();
+      }catch (NullPointerException ignored) {
+        return null;
+      }
 
       if(arguments == null || arguments.length < args.length - 1) return null;
 
