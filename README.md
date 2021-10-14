@@ -20,7 +20,7 @@
     Supports 1.8.8-1.16.5
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://youtu.be/iNT8EAlLA-c">View Demo</a>
     ·
     <a href="https://github.com/giovalgas/RoamPlugin/issues">Report Bug</a>
     ·
@@ -52,7 +52,7 @@
   </tr>
  </table>
 
-Although this was made with the intent of adding it to my portfolio I fully intent to keep updating.
+Although this was made with the intent of adding it to my portfolio I fully intent to keep fixing bugs.
 
 Features:
 * Vault support.
@@ -71,7 +71,7 @@ This project was built with:
 
 ### Support the dev
 
-Enjoyed the plugin and want to support me monetarily [buy me a coffe!](https://www.buymeacoffee.com/giovalgasdev)
+Enjoyed the plugin and want to support me monetarily? [buy me a coffe!](https://www.buymeacoffee.com/giovalgasdev)
 Any donations are going to be **greatly appreciated!**
 <!-- GETTING STARTED -->
 ## Getting Started
