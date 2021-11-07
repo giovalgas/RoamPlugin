@@ -1,6 +1,6 @@
 name: RoamPlugin
 version: ${project.version}
-main: me.giodev.roamplugin.RoamPlugin
+main: dev.giovalgas.roamplugin.RoamPlugin
 api-version: 1.16
 commands:
   roam:
