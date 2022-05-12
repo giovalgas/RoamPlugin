@@ -5,6 +5,7 @@ import dev.giovalgas.roamplugin.timer.DurationTask;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitTask;
 
 public class RoamState {
@@ -15,6 +16,7 @@ public class RoamState {
   private long lastUse;
   private RoamPlugin plugin;
   private BukkitTask runnable;
+  private ItemStack[] playerInventoryContents;
 
   public RoamState(Player player, RoamPlugin plugin) {
     this.player = player;
@@ -35,6 +37,9 @@ public class RoamState {
         this.runnable = Bukkit.getScheduler().runTaskTimer(plugin, new DurationTask(plugin, player), 0L, 20L);
       }
 
+      this.playerInventoryContents = player.getInventory().getContents();
+
+      player.getInventory().clear();
       player.sendMessage(plugin.getLanguageManager().getStartedRoaming());
 
     }else{
@@ -42,6 +47,7 @@ public class RoamState {
       player.teleport(roamingPlayerEntity.getLocation());
       roamingPlayerEntity.killEntity();
 
+      player.getInventory().setContents(this.playerInventoryContents);
       player.sendMessage(plugin.getLanguageManager().getStoppedRoaming());
 
       if(runnable != null) {
