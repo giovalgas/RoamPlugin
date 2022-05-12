@@ -2,6 +2,7 @@ package dev.giovalgas.roamplugin.listeners;
 
 import dev.giovalgas.roamplugin.RoamPlugin;
 import dev.giovalgas.roamplugin.data.data.RoamState;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,6 +26,14 @@ public class RoamMovementListener implements Listener {
     if(!rm.isRoaming()) return;
 
     Location initialLocation = rm.getRoamingPlayerEntity().getLocation();
+
+    // Teleport the player back if they go into another world.
+    if(!player.getLocation().getWorld().equals(initialLocation.getWorld())) {
+      player.teleport(initialLocation);
+      player.setGameMode(GameMode.SPECTATOR); // Some plugins might update the gamemode when switching worlds.
+      player.sendMessage(plugin.getLanguageManager().getMovementError());
+      return;
+    }
 
     if(player.getLocation().distance(initialLocation) > plugin.getConfigManager().getMaxDistance()) {
       player.teleport(initialLocation);
