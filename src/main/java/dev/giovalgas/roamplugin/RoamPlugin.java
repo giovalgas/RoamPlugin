@@ -7,7 +7,8 @@ import dev.giovalgas.roamplugin.utils.LoggerUtil;
 import dev.giovalgas.roamplugin.commands.BaseCommand;
 import dev.giovalgas.roamplugin.data.data.RoamState;
 import dev.giovalgas.roamplugin.data.language.LanguageManager;
-import me.giodev.roamplugin.listeners.*;
+import dev.giovalgas.roamplugin.listeners.*;
+import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.UUID;
 
-
+@Getter
 public final class RoamPlugin extends JavaPlugin {
 
   private ConfigManager configManager;
@@ -137,19 +138,4 @@ public final class RoamPlugin extends JavaPlugin {
     }
   }
 
-  public Economy getEcon() {
-    return econ;
-  }
-
-  public LoggerUtil getLog() {
-    return log;
-  }
-
-  public ConfigManager getConfigManager() {
-    return configManager;
-  }
-
-  public LanguageManager getLanguageManager() {
-    return languageManager;
-  }
 }
