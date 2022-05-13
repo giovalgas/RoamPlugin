@@ -59,10 +59,8 @@ public final class RoamPlugin extends JavaPlugin {
 
     RoamState rs = getRoamerState(player);
 
-    int cooldown = (int) ((System.currentTimeMillis() - rs.getLastUse()) / 1000);
-
-    if((cooldown < this.getConfigManager().getCooldown() && !rs.isRoaming())){
-      player.sendMessage(this.getLanguageManager().getStillOnCooldown().replace("%cooldown_time%", String.valueOf(this.getConfigManager().getCooldown() - cooldown)));
+    if(rs.isOnCooldown() && !rs.isRoaming()){
+      player.sendMessage(this.getLanguageManager().getStillOnCooldown().replace("%cooldown_time%", String.valueOf(rs.getCooldownTime())));
       return;
     }
 
