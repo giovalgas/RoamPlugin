@@ -17,6 +17,7 @@ public class RoamState {
   private RoamPlugin plugin;
   private BukkitTask runnable;
   private ItemStack[] playerInventoryContents;
+  private GameMode originalGameMode;
 
   public RoamState(Player player, RoamPlugin plugin) {
     this.player = player;
@@ -30,6 +31,7 @@ public class RoamState {
 
     if(roaming) {
       gm = GameMode.SPECTATOR;
+      originalGameMode = player.getGameMode();
       roamingPlayerEntity = new RoamingPlayerEntity(player);
       this.lastUse = System.currentTimeMillis();
 
@@ -43,7 +45,7 @@ public class RoamState {
       player.sendMessage(plugin.getLanguageManager().getStartedRoaming());
 
     }else{
-      gm = GameMode.SURVIVAL;
+      gm = originalGameMode;
       player.teleport(roamingPlayerEntity.getLocation());
       roamingPlayerEntity.killEntity();
 
