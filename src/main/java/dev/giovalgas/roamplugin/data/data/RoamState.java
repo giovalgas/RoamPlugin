@@ -59,6 +59,28 @@ public class RoamState {
     player.setGameMode(gm);
   }
 
+  /**
+   * Gets the time in seconds until the cooldown is over.
+   *
+   * @return  The remaining time in seconds, or -1 if the player isn't
+   *          on cooldown.
+   */
+  public int getCooldownTime() {
+    int cooldown = (int) ((System.currentTimeMillis() - getLastUse()) / 1000);
+    int remaining = plugin.getConfigManager().getCooldown() - cooldown;
+    return (remaining < 0) ? -1 : remaining;
+  }
+
+  /**
+   * Check if the player is currently on cooldown.
+   *
+   * @return  True if the player is on cooldown, false otherwise.
+   */
+  public boolean isOnCooldown() {
+    int cooldown = (int) ((System.currentTimeMillis() - getLastUse()) / 1000);
+    return cooldown < plugin.getConfigManager().getCooldown();
+  }
+
   public boolean isRoaming() {
     return roaming;
   }

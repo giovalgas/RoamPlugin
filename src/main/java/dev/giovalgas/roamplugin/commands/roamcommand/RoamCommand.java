@@ -2,6 +2,7 @@ package dev.giovalgas.roamplugin.commands.roamcommand;
 
 import dev.giovalgas.roamplugin.RoamPlugin;
 import dev.giovalgas.roamplugin.commands.BaseCommand;
+import dev.giovalgas.roamplugin.data.data.RoamState;
 import dev.giovalgas.roamplugin.data.permissions.Permission;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
@@ -27,12 +28,18 @@ public class RoamCommand extends BaseCommand {
       return;
     }
 
-    if(plugin.getConfigManager().isVaultEnabled() && !plugin.getRoamerState(player).isRoaming()){
+    RoamState rs = plugin.getRoamerState(player);
+    if(plugin.getConfigManager().isVaultEnabled() && !rs.isRoaming()){
 
       double price = plugin.getConfigManager().getPrice();
 
       if(plugin.getEcon().getBalance(player) < price){
         player.sendMessage(plugin.getLanguageManager().getNoMoney());
+        return;
+      }
+
+      if(rs.isOnCooldown()){
+        player.sendMessage(plugin.getLanguageManager().getStillOnCooldown().replace("%cooldown_time%", String.valueOf(rs.getCooldownTime())));
         return;
       }
 
